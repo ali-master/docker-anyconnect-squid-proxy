@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+  vpn:
+    container_name: vpn
+    build: 
+      context: ./build
+      dockerfile: Dockerfile
+    ports:
+      - 0.0.0.0:3306:3306
+    privileged: true
+    env_file:
+      - .env
+    cap_add:
+    - NET_ADMIN
+    
